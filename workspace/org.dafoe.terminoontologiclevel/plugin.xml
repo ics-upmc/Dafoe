@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.dafoe.terminoontologiclevel.TerminoOntologicPerspectiveFactory"
+            id="org.dafoe.terminoontologiclevel.perspectiveId"
+            name="%perspective.name.0">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            class="org.dafoe.terminoontologiclevel.TerminoOntologicViewPart"
+            id="org.dafoe.terminoontologiclevel.terminoOntologicViewId"
+            name="%view.name.0"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.themes">
+         <theme
+            id="org.dafoe.terminoontologiclevel.terminoontologicTheme"
+            name="Termino-ontologic Theme">
+         <colorOverride
+               id="org.eclipse.ui.workbench.ACTIVE_TAB_BG_START"
+               value="250,80,10">
+         </colorOverride>
+         <colorOverride
+               id="org.eclipse.ui.workbench.ACTIVE_TAB_BG_END"
+               value="250,80,10">
+         </colorOverride>
+         <colorOverride
+               id="org.eclipse.ui.workbench.INACTIVE_TAB_BG_END"
+               value="252,169,137">
+         </colorOverride>
+         <colorOverride
+               id="org.eclipse.ui.workbench.INACTIVE_TAB_BG_START"
+               value="252,169,137">
+         </colorOverride>
+         <colorOverride
+               id="org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_START"
+               value="250,80,10">
+         </colorOverride>
+         <colorOverride
+               id="org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_END"
+               value="250,80,10">
+         </colorOverride>
+      </theme>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="org.dafoe.terminoontologiclevel.actionSet1"
+            label="label"
+            visible="true">
+              <menu 
+               id="etmenu"
+               label="Edit">
+                  <groupMarker 
+                        name="editgroup">
+                  </groupMarker>
+            </menu>
+            <action 
+               class="org.dafoe.terminoontologiclevel.actions.OpenTerminoOntoAction"
+               id="org.dafoe.terminoontologiclevel.actions.openterminoonto"
+               label="Open TerminoOntology"
+               menubarPath="file/additions"
+               style="push">
+         </action>
+              
+          
+      </actionSet>
+   </extension>
+
+</plugin>

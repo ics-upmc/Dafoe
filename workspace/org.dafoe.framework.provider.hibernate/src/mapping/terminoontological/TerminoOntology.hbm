@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminoontological.model.impl">
+	<class name="TerminoOntologyImpl" table="m22_terminoontology">
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<property name="Name"	type="string">
+		<column name="name" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<property name="NameSpace"	type="string">
+		<column name="namespace" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<property name="Language"	type="string">
+		<column name="language" sql-type="char(50)" not-null="true"/>
+		</property>	
+			
+  		<set name="TerminoConcepts"  inverse="true" order-by="label asc" cascade="all-delete-orphan">
+		    <key column="termino_ontology_id"/>
+		    <one-to-many class="TerminoConceptImpl"/> 
+		 
+		</set>	
+
+
+		<set name="TerminoConceptRelations"  inverse="true" order-by="label asc" cascade="all-delete-orphan">
+		    <key column="termino_ontology_id"/>
+		    <one-to-many class="TerminoConceptRelationImpl"/> 
+		 
+		</set>	
+
+
+		<set name="TypeRelationTcs"  inverse="true" order-by="label asc" cascade="all-delete-orphan">
+		    <key column="termino_ontology_id"/>
+		    <one-to-many class="TypeRelationTcImpl"/> 
+		 
+		</set>	
+		
+		<set name="TcSets"  inverse="true" order-by="label asc" cascade="all-delete-orphan">
+		    <key column="termino_ontology_id"/>
+		    <one-to-many class="TcHashSetImpl"/> 
+		 
+		</set>	
+		
+		<set name="TcLists"  inverse="true" order-by="label asc" cascade="all-delete-orphan">
+		    <key column="termino_ontology_id"/>
+		    <one-to-many class="TcArrayListImpl"/> 
+		 
+		</set>	
+		
+		 <set name="MappedTerminologies" table="map_m21_m22_terminoloy_2_terminoontology"  inverse="true">
+		    <key column="terminoontology_id"/>
+		    <many-to-many class="org.dafoe.framework.provider.hibernate.terminological.model.impl.TerminologyImpl" column="terminology_id"/> 
+		  
+		</set>
+		
+		
+		<set name="MappedOntologies" table="map_m22_m23_terminoontology_2_ontology"  inverse="false">
+		    <key column="terminoontology_id"/>
+		    <many-to-many class="org.dafoe.framework.provider.hibernate.ontological.model.impl.OntologyImpl" column="ontology_id"/> 
+		  
+		</set>
+		
+		<many-to-one name="Project" class="org.dafoe.framework.provider.hibernate.workspace.model.impl.ProjectImpl" column="project_id"/>
+		
+		
+	</class>
+</hibernate-mapping>

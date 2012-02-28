@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminological.model.impl">
+	<class name="TypeRelationTerminoImpl" table="m21_type_relation">
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+				
+		
+		<property name="Label"	type="string">
+		<column name="label" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<property name="Status"	type="integer">
+		<column name="status" sql-type="int(4)" />
+		</property>
+				
+		<!-- association inverse termRelation-->
+		
+		<set name="TermRelations"  inverse="true">
+		    <key column="type_rel_id"/>
+		    <one-to-many class="TermRelationImpl"/> 
+		 
+		</set>		
+				
+		<!-- association inverse method -->
+		
+		 <set name="Methods" table="m21_method_2_type_relation"  inverse="true">
+		    <key column="type_rel_id"/>
+		    <many-to-many class="MethodImpl" column="method_id"/> 
+		  
+		</set>
+		
+		
+		<!--  mapping  term_type_rel M:N tc_type_rel -->	
+	 	<set name="MappedTcRelationTypes" table="map_m21_m22_term_type_relation_2_tc_type_relation"  inverse="false">
+		    <key column="term_type_rel_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TypeRelationTcImpl" column="tc_type_rel_id"/> 
+		  
+		</set>
+		
+		
+		<many-to-one name="Terminology" class="TerminologyImpl" column="terminology_id"/>
+		
+				
+				
+	</class>
+</hibernate-mapping>

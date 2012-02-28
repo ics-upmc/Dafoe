@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ProjectManagement Plugin
+Bundle-SymbolicName: org.dafoe.projectmanagement
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.projectmanagement.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.dafoe.lib.postgresql;bundle-version="1.0.0",
+ org.eclipse.core.resources;bundle-version="3.5",
+ org.dafoe.controler;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.dafoe.projectmanagement
+Bundle-Vendor: CRITT Informatique

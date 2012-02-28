@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminoontological.model.impl">
+	<class name="TerminoConceptRelationImpl" table="m22_terminoconcept_relation">
+		
+		<!-- identifiant particulier pour association one-to-one avec term-->
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<set name="Annotations"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="tcr_id"/>
+		    <one-to-many class="TerminoConceptRelationAnnotationImpl"/> 
+		 
+		</set>
+		
+		
+		<set name="RelationMembers" table="m22_tc_relation_member" inverse="true" cascade="all-delete-orphan">
+		    <key column="tc_rel_id"/>
+		    <one-to-many class="TerminoConceptRelationMemberImpl"/> 
+		  
+		</set>
+						
+		<many-to-one name="TypeRelation" class="TypeRelationTcImpl" column="type_reltc_id"/>
+		
+		<many-to-one name="TerminoOntology" class="TerminoOntologyImpl" column="termino_ontology_id"/>
+		
+		<property name="Status"	type="integer">
+		<column name="status" sql-type="int(4)" not-null="false"/>
+		</property>
+		
+		
+		
+		<set name="MappedTermRelations" table="map_m21_m22_term_relation_2_tc_relation"  inverse="false">
+		    <key column="tc_rel_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.terminological.model.impl.TermRelationImpl" column="term_rel_id"/> 
+		  
+		</set>
+		
+		
+		
+		<!-- mapping TcM:N Class-->
+		
+		<set name="MappedClasses" table="map_m22_m23_tc_relation_2_class"  inverse="false">
+		    <key column="tc_rel_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.ontological.model.impl.ClassImpl" column="class_id"/> 
+		  
+		</set>
+		
+		
+		<!-- mapping TcM:N DatatypeProp-->
+		
+		<set name="MappedDatatypeProperties" table="map_m22_m23_tc_relation_2_datatype_prop"  inverse="false">
+		    <key column="tc_rel_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.ontological.model.impl.DatatypePropertyImpl" column="datatype_prop_id"/> 
+		  
+		</set>
+		
+		
+		
+		<!-- mapping TcM:N ObjectProp-->
+		
+		<set name="MappedObjectProperties" table="map_m22_m23_tc_relation_2_object_prop"  inverse="false">
+		    <key column="tc_rel_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.ontological.model.impl.ObjectPropertyImpl" column="object_prop_id"/> 
+		  
+		</set>
+		
+	</class>
+</hibernate-mapping>

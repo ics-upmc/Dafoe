@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.dafoe.application.extensionpoint.ImportTermino">
+      <ImportTermino
+            class="org.dafoe.plugin.load.corpus.yatea.main.YateaLoaderResource"
+            format="xml"
+            id="org.dafoe.plugin.load.corpus.yatea.ImportTermino1"
+            name="YATEA ---&gt; DAFOE (old version)">
+      </ImportTermino>
+   </extension>
+
+</plugin>

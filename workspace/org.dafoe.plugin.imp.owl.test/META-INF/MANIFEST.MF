@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: org.dafoe.plugin.imp.owl.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.dafoe.plugin.imp.owl.test.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.dafoe.framework;bundle-version="1.0.0",
+ org.dafoe.framework.provider.hibernate;bundle-version="1.0.0",
+ org.dafoe.framework.datasourcemanager;bundle-version="1.0.0",
+ org.dafoe.framework.tools;bundle-version="1.0.0",
+ org.dafoe.plugin.imp.owl;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: CRITT Informatique

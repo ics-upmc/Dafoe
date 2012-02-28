@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminological.model.impl">
+	<class name="DocumentImpl" table="m11_document">
+		
+		<id name="Id" type="integer">
+		 <column name="doc_id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<property name="Name"	type="string">
+		<column name="name" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		
+		
+		<!-- association inverse doc 1:N Phrase-->
+		
+		<set name="Sentences"  inverse="true" cascade="all-delete-orphan">
+		    <key column="doc_id"/>
+		    <one-to-many class="SentenceImpl"/> 
+		 
+		</set>
+		
+		
+<!-- association  Corpus -->
+		<many-to-one name="RelatedCorpus" class="CorpusImpl" column="corpus_id"/>
+		
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.dafoe.corpuslevel.CorpusPerspectiveFactory"
+            id="org.dafoe.corpuslevel.perspectiveId"
+            name="%perspective.name.0">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="org.dafoe.corpuslevel.CorpusViewPart"
+            id="org.dafoe.corpuslevel.corpusViewId"
+            name="%view.name.0"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.themes">
+         <theme
+            id="org.dafoe.corpuslevel.corpusTheme"
+            name="Corpus Theme">
+            <colorOverride
+                  colorFactory="org.dafoe.corpuslevel.ColorFactory"
+                  id="org.dafoe.corpuslevel.colorOverride1">
+            </colorOverride>
+            <colorOverride
+                  colorFactory="org.dafoe.corpuslevel.ColorFactory"
+                  id="org.eclipse.ui.workbench.ACTIVE_TAB_BG_END">
+            </colorOverride>
+                 
+      </theme>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="org.dafoe.corpuslevel.actionSet1"
+            label="label">
+         <action
+               class="org.dafoe.corpuslevel.actions.GenericAction"
+               id="org.dafoe.corpuslevel.actions.load"
+               label="%action.label.0"
+               menubarPath="file/additions"
+               style="push">
+         </action>
+         
+         <action 
+               class="org.dafoe.corpuslevel.actions.ExportAction"
+               id="org.dafoe.corpuslevel.actions.export"
+               label="Export"
+               menubarPath="file/additions"
+               style="push">
+         </action> 
+      </actionSet>
+      
+
+   </extension>
+
+</plugin>

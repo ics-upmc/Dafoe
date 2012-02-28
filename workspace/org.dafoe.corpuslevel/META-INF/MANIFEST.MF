@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name.0
+Bundle-SymbolicName: org.dafoe.corpuslevel;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.corpuslevel.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.5.2",
+ org.dafoe.framework;bundle-version="1.0.0",
+ org.dafoe.controler,
+ org.dafoe.corpuslevel.ui;bundle-version="1.0.0",
+ org.dafoe.application.importexportmanager;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Localization: plugin
+Import-Package: org.eclipse.ui.dialogs
+Bundle-Vendor: CRITT Informatique

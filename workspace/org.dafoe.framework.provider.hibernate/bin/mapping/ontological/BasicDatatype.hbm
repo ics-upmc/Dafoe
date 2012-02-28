@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.ontological.model.impl">
+	<class name="BasicDatatypeImpl" table="m23_basic_datatype">
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+				
+		
+		<property name="Label"	type="string">
+		<column name="label" sql-type="char(50)" not-null="true"/>
+		</property>
+				
+				
+				
+	</class>	
+				
+				
+	
+</hibernate-mapping>

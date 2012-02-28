@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminoontological.model.impl">
+	<class name="TerminoConcept2TerminoPropertyImpl" table="m22_terminoconcept_2_terminoproperty">
+		
+		
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		
+		<!-- association term-->
+		<many-to-one name="TerminoConcept" class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TerminoConceptImpl" column="tc_id"/>
+		
+			
+		<!-- association termproperty -->
+		<many-to-one name="TerminoProperty" class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TerminoPropertyImpl" column="terminoproperty_id"/>
+			
+		
+	</class>
+</hibernate-mapping>

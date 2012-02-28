@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.dafoe.application.extensionpoint.ImportOnto">
+      <ImportOnto
+            class="org.dafoe.plugin.imp.owl.main.OwlLoaderResource"
+            id="org.dafoe.plugin.imp.owl.id"
+            name="OWL ---&gt; DAFOE">
+      </ImportOnto>
+   </extension>
+
+</plugin>

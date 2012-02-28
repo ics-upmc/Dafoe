@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.ontological.model.impl">
+	<class name="OntologyImpl" table="m23_ontology">
+		
+		<id name="Id" type="integer">
+		 <column name="rid" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<property name="Name"	type="string">
+		<column name="name" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<property name="NameSpace"	type="string">
+		<column name="namespace" sql-type="char(200)" not-null="true"/>
+		</property>
+		
+		<property name="Language"	type="string">
+		<column name="language" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<!-- association inverse ontology 1:N class-->
+		<set name="Classes"  inverse="true" order-by="label asc" cascade="all-delete-orphan">
+		    <key column="ontology_id"/>
+		    <one-to-many class="ClassImpl"/> 
+		 
+		</set>	
+
+
+		<set name="ObjectProperties"  inverse="true" order-by="label asc" cascade="all-delete-orphan">
+		    <key column="ontology_id"/>
+		    <one-to-many class="ObjectPropertyImpl"/> 
+		 
+		</set>	
+		
+		<set name="DatatypeProperties"  inverse="true" order-by="label asc" cascade="all-delete-orphan">
+		    <key column="ontology_id"/>
+		    <one-to-many class="DatatypePropertyImpl"/> 
+		 
+		</set>	
+		
+		<set name="MappedTerminoOntologies" table="map_m22_m23_terminoontology_2_ontology"  inverse="true">
+		    <key column="ontology_id"/>
+		    <many-to-many class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TerminoOntologyImpl" column="terminoontology_id"/> 
+		  
+		</set>
+		
+		
+		<many-to-one name="Project" class="org.dafoe.framework.provider.hibernate.workspace.model.impl.ProjectImpl" column="project_id"/>
+		
+		
+	</class>
+</hibernate-mapping>

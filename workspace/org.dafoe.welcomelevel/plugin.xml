@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.dafoe.welcomelevel.WelcomPerspectiveFactory"
+            id="org.dafoe.welcomelevel.perspectiveId"
+            name="%perspective.name.0">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="org.dafoe.welcomelevel.WelcomeViewPart2"
+            id="org.dafoe.welcomelevel.welcomeViewId2"
+            name="%view.name.0"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.themes">
+      <theme
+            id="org.dafoe.welcomelevel.welcomeTheme"
+            name="Welcome Theme">
+      </theme>
+   </extension>
+
+</plugin>

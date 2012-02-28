@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ressources Plug-in
+Bundle-SymbolicName: org.dafoe.ressources
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.ressources.Activator
+Bundle-Vendor: CRITT Informatique
+Export-Package: org.dafoe.ressources
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.log4j

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminological.model.impl">
+	<class name="TerminologyImpl" table="m21_terminology">
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<property name="Name"	type="string">
+		<column name="name" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<property name="NameSpace"	type="string">
+		<column name="namespace" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<property name="Language"	type="string">
+		<column name="language" sql-type="char(50)" not-null="true"/>
+		</property>
+			
+  		<set name="Terms" inverse="true" lazy="extra" order-by="label asc" cascade="all-delete-orphan">
+		    <key column="terminology_id" not-null="true"/>
+		    <one-to-many class="TermImpl"/> 
+		 
+		</set>	
+
+
+		<set name="TermRelations"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="terminology_id"/>
+		    <one-to-many class="TermRelationImpl"/> 
+		 
+		</set>	
+
+		<set name="TermSyntacticRelations"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="terminology_id"/>
+		    <one-to-many class="TermSyntacticRelationImpl"/> 
+		 
+		</set>	
+		
+		<set name="TypeRelationTermino"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="terminology_id"/>
+		    <one-to-many class="TypeRelationTerminoImpl"/> 
+		 
+		</set>	
+		
+		 <set name="MappedTerminoOntologies" table="map_m21_m22_terminoloy_2_terminoontology"  inverse="false">
+		    <key column="terminology_id"/>
+		    <many-to-many class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TerminoOntologyImpl" column="terminoontology_id"/> 
+		  
+		</set>
+		
+		
+		<many-to-one name="Project" class="org.dafoe.framework.provider.hibernate.workspace.model.impl.ProjectImpl" column="project_id"/>
+		
+		
+	</class>
+</hibernate-mapping>

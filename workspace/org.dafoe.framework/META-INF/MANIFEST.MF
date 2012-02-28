@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Framework Plug-in
+Bundle-SymbolicName: org.dafoe.framework;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.framework.Activator
+Require-Bundle: org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Export-Package: 
+ org.dafoe.framework,
+ org.dafoe.framework.core.mock,
+ org.dafoe.framework.core.ontological.model,
+ org.dafoe.framework.core.terminological.model,
+ org.dafoe.framework.core.terminoontological.model,
+ org.dafoe.framework.core.util,
+ org.dafoe.framework.workspace.model
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: CRITT Informatique

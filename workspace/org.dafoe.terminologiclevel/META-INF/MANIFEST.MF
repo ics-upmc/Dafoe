@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name.0
+Bundle-SymbolicName: org.dafoe.terminologiclevel;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.terminologiclevel.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.dafoe.ui.widgets;bundle-version="1.0.0",
+ org.dafoe.ressources;bundle-version="1.0.0",
+ org.dafoe.terminology.common;bundle-version="1.0.0",
+ org.dafoe.controler;bundle-version="1.0.0",
+ org.eclipse.core.expressions,
+ org.dafoe.framework;bundle-version="1.0.0",
+ org.dafoe.framework.provider.hibernate;bundle-version="1.0.0",
+ org.dafoe.terminoontologiclevel.common;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Localization: plugin
+Bundle-ClassPath: .
+Import-Package: org.apache.log4j,
+ org.dafoe.framework.datasourcemanager.model,
+ org.dafoe.framework.datasourcemanager.model.impl
+Bundle-Vendor: CRITT Informatique

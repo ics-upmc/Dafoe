@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminological.model.impl">
+	<class name="TermRelationImpl" table="m21_term_relation">
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+								
+				 
+		<property name="Status"	type="integer">
+		<column name="status" sql-type="int(4)" />
+		</property>
+		
+		<!-- association term1 -->
+		<many-to-one name="Term1" class="TermImpl" column="term1_id" cascade="none"/>
+		
+			
+		<!-- association term2 -->
+		<many-to-one name="Term2" class="TermImpl" column="term2_id" cascade="none"/>
+		
+				 
+		<!-- association  type_rel-->
+		<many-to-one name="TypeRel" class="TypeRelationTerminoImpl" column="type_rel_id"/>
+						
+		<many-to-one name="Terminology" class="TerminologyImpl" column="terminology_id"/>
+		
+		 <set name="OriginRelation"  inverse="true" cascade="all-delete-orphan">
+		    <key column="term_rel_id"/>
+		    <one-to-many class="OriginRelationImpl"/> 
+		  
+		</set>
+		
+		
+		<!--  mapping  termRel M:N tcRel -->	
+	 	<set name="MappedTerminoConceptRelations" table="map_m21_m22_term_relation_2_tc_relation"  inverse="false">
+		    <key column="term_rel_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TerminoConceptRelationImpl" column="tc_rel_id"/> 
+		  
+		</set>
+		
+		 
+	</class>
+</hibernate-mapping>

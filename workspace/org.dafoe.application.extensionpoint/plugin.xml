@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="ImportTermino" name="ImportTermino" schema="schema/ImportTermino.exsd"/>
+   <extension-point id="ImportOnto" name="ImportOnto" schema="schema/ImportOnto.exsd"/>
+   <extension-point id="ImportTerminoOnto" name="ImportTerminoOnto" schema="schema/ImportTerminoOnto.exsd"/>
+   <extension-point id="ExportTerminoOnto" name="ExportTerminoOnto" schema="schema/ExportTerminoOnto.exsd"/>
+   <extension-point id="ExportOnto" name="ExportOnto" schema="schema/ExportOnto.exsd"/>
+   <extension-point id="ExportTermino" name="ExportTermino" schema="schema/ExportTermino.exsd"/>
+
+</plugin>

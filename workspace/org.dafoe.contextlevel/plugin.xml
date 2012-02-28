@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            class="org.dafoe.contextlevel.ContextViewPart"
+            id="org.dafoe.contextlevel.contextviewId"
+            name="%view.name.0"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="true"
+            class="org.dafoe.contextlevel.ContexViewPart2"
+            id="org.dafoe.contextlevel.contextviewId2"
+            name="%view.name.0"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>

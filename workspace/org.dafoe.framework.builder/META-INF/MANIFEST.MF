@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Builder
+Bundle-SymbolicName: org.dafoe.framework.builder
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.dafoe.framework.builder.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.dafoe.framework;bundle-version="1.0.0",
+ org.dafoe.framework.provider.hibernate;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.dafoe.framework.builder.model
+Bundle-Vendor: CRITT Informatique

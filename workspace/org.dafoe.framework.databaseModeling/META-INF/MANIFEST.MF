@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DatabaseModeling Plug-in
+Bundle-SymbolicName: org.dafoe.framework.databaseModeling
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.framework.databasemodeling.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.dafoe.framework;bundle-version="1.0.0",
+ org.dafoe.framework.tools;bundle-version="1.0.0",
+ org.dafoe.framework.datasourcemanager;bundle-version="1.0.0",
+ org.dafoe.framework.provider.hibernate;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: .
+Bundle-Vendor: CRITT Informatique

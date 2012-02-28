@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Extensionpoint Plug-in
+Bundle-SymbolicName: org.dafoe.application.extensionpoint;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.application.extensionpoint.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.5.2"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.dafoe.application.extensionpoint,
+ org.dafoe.application.extensionpoint.generic,
+ org.dafoe.application.extensionpoint.ontological,
+ org.dafoe.application.extensionpoint.terminological,
+ org.dafoe.application.extensionpoint.terminoontological
+Bundle-Vendor: CRITT Informatique

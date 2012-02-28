@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.dafoe.application.extensionpoint.ExportOnto">
+      <ExportOnto
+            class="org.dafoe.plugin.exp.owl.main.OwlExporterResource"
+            id="org.dafoe.plugin.exp.owl.ExportOntoID"
+            name="DAFOE ---&gt; OWL">
+      </ExportOnto>
+   </extension>
+
+</plugin>

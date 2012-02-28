@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminoontological.model.impl">
+	<class name="TerminoConceptRelationMemberImpl" table="m22_tc_relation_member">
+		
+		
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		
+		<!-- association tc-->
+		<many-to-one name="TerminoConcept" class="TerminoConceptImpl" column="tc_id"/>
+		
+			
+		<!-- association tc_rel -->
+		<many-to-one name="TerminoConceptRelation" class="TerminoConceptRelationImpl" column="tc_rel_id"/>
+		
+		<!-- association RoleInTcRelation -->
+		<many-to-one name="TerminoConceptRole" class="TerminoConceptRoleImpl" column="role_id"/>
+
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminoontological.model.impl">
+	<class name="TerminoConceptRelationAnnotationImpl" table="m22_annotation_value_2_tcr">
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<property name="Value"	type="string">
+		<column name="annotation_value" sql-type="char(300)" not-null="true"/>
+		</property>
+		
+				
+		<!-- association Termino_annotation -->
+		<many-to-one name="TerminoOntoAnnotationType" class="TerminoOntoAnnotationTypeImpl" column="annotation_type_id" />
+		
+		<many-to-one name="ItsTerminoConceptRelation" class="TerminoConceptRelationImpl" column="tcr_id"/>
+			
+		
+		
+	</class>
+</hibernate-mapping>

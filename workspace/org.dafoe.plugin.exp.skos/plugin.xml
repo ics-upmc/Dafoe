@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.dafoe.application.extensionpoint.ExportTerminoOnto">
+      <ExportTerminoOnto
+            class="org.dafoe.plugin.exp.skos.main.SkosExportResource"
+            id="org.dafoe.plugin.exp.skos.ExportTerminoOntoID"
+            name="DAFOE ---&gt; SKOS">
+      </ExportTerminoOnto>
+   </extension>
+
+</plugin>

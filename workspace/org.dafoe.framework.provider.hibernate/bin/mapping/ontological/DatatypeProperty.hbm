@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.ontological.model.impl">
+	<class name="DatatypePropertyImpl"	table="m23_datatype_property">
+	
+	
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<property name="Label"	type="string">
+		<column name="label" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<property name="NameSpace"	type="string">
+		<column name="namespace" sql-type="char(200)" />
+		</property>
+			
+		<many-to-one name="Ontology" class="OntologyImpl" column="ontology_id"/>
+		
+		<many-to-one name="Range" class="BasicDatatypeImpl" column="range_basic_id"/>	
+		
+		<property name="Status"	type="integer">
+		<column name="status" sql-type="int(4)" not-null="false"/>
+		</property>
+		
+		<property name="MaximalCardinality"	type="integer">
+		<column name="card_max" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+		<property name="MinimalCardinality"	type="integer">
+		<column name="card_min" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+		
+	    <set name="Domains" table="m23_class_2domain2_datatype_property">
+		    <key column="datatype_property_id"/>
+		    <many-to-many class="ClassImpl" column="class_id"/> 
+		  
+		</set>
+			
+		<!-- association parent -->
+		<many-to-one name="Parent" class="DatatypePropertyImpl" column="parent_id"/>
+		
+		<!-- association inverse class 1:N classInstance-->
+		<set name="Children"  inverse="true">
+		    <key column="parent_id"/>
+		    <one-to-many class="DatatypePropertyImpl"/> 
+		 
+		</set>
+		
+		<!--  mapping  datatype_prop M:N tc_rel -->	
+	 	<set name="MappedTerminoConceptRelations" table="map_m22_m23_tc_relation_2_datatype_prop"  inverse="true">
+		    <key column="datatype_prop_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TerminoConceptRelationImpl" column="tc_rel_id"/> 
+		  
+		</set>	
+			
+		
+			    
+	<!--  mapping  term M:N tc -->	
+	 	<set name="MappedTerminoConcepts" table="map_m22_m23_tc_2_datatype_prop"  inverse="true">
+		    <key column="datatype_prop_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TerminoConceptImpl" column="tc_id"/> 
+		  
+		</set>
+		
+	
+	<set name="MappedTerminoConceptRelationTypes" table="map_m22_m23_tcr_type_2_datatype_prop"  inverse="true">
+		    <key column="datatype_prop_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TypeRelationTcImpl" column="tcr_type_id"/> 
+		  
+		</set>	
+			
+			
+		<set name="Annotations"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="datatype_prop_id"/>
+		    <one-to-many class="DataTypePropertyAnnotationImpl"/> 
+		 
+		</set>	
+			
+			
+			
+			
+		<set name="ConstraintOneOf"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="datatype_prop_id"/>
+		    <one-to-many class="OneOfImpl"/> 
+		 
+		</set>
+		
+		<set name="ConstraintHighThan"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="datatype_prop_id"/>
+		    <one-to-many class="HighThanImpl"/> 
+		 
+		</set>
+		
+		<set name="ConstraintLessThan"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="datatype_prop_id"/>
+		    <one-to-many class="LessThanImpl"/> 
+		 
+		</set>
+		
+		<set name="ConstraintHasValue"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="datatype_prop_id"/>
+		    <one-to-many class="HasValueImpl"/> 
+		 
+		</set>
+		
+		<set name="ConstraintLike"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="datatype_prop_id"/>
+		    <one-to-many class="LikeImpl"/> 
+		 
+		</set>
+		
+		
+			
+	</class>
+</hibernate-mapping>

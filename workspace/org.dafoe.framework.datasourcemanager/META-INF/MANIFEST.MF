@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Datasourcemanager Plug-in
+Bundle-SymbolicName: org.dafoe.framework.datasourcemanager
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.framework.datasourcemanager.Activator
+Require-Bundle: org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.dafoe.framework.datasourcemanager,
+ org.dafoe.framework.datasourcemanager.model,
+ org.dafoe.framework.datasourcemanager.model.impl
+Bundle-Vendor: CRITT Informatique

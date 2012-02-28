@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.ontological.model.impl">
+	<class name="ObjectPropertyImpl" table="m23_object_property">
+		
+		<!-- identifiant particulier pour association one-to-one avec term-->
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<property name="Label"	type="string">
+		<column name="label" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<property name="NameSpace"	type="string">
+		<column name="namespace" sql-type="char(200)" />
+		</property>
+		
+		<property name="MaximalCardinality"	type="integer">
+		<column name="card_max" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+		<property name="MinimalCardinality"	type="integer">
+		<column name="card_min" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+		<property name="Symetric"	type="boolean">
+		<column name="is_symetric" sql-type="boolean" not-null="true"/>
+		</property>	
+		
+		<property name="Transitive"	type="boolean">
+		<column name="is_transitive" sql-type="boolean" not-null="true"/>
+		</property>	
+		
+		<many-to-one name="Ontology" class="OntologyImpl" column="ontology_id"/>
+	
+	    <many-to-one name="InverseOf" class="ObjectPropertyImpl" column="inverse_of"/>
+		
+		<many-to-one name="Range" class="ClassImpl" column="range_id"/>
+		
+		<property name="Status"	type="integer">
+		<column name="status" sql-type="int(4)" />
+		</property>
+		
+				
+		<set name="Domains" table="m23_class_2domain2_object_property">
+		    <key column="object_property_id"/>
+		    <many-to-many class="ClassImpl" column="class_id"/> 
+		  
+		</set>
+		
+		<!-- association parent -->
+		<many-to-one name="Parent" class="ObjectPropertyImpl" column="parent_id"/>
+		
+		<set name="Children"  inverse="true">
+		    <key column="parent_id"/>
+		    <one-to-many class="ObjectPropertyImpl"/> 
+		 
+		</set>
+		
+				
+		<!--  mapping  obejct_prop M:N tc__rel -->	
+	 	<set name="MappedTerminoConceptRelations" table="map_m22_m23_tc_relation_2_object_prop"  inverse="true">
+		    <key column="object_prop_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TerminoConceptRelationImpl" column="tc_rel_id"/> 
+		  
+		</set>	
+		
+				    
+	<!--  mapping  term M:N tc -->	
+	 	<set name="MappedTerminoConcepts" table="map_m22_m23_tc_2_object_prop"  inverse="true">
+		    <key column="object_prop_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TerminoConceptImpl" column="tc_id"/> 
+		  
+		</set>
+		
+		<set name="MappedTerminoConceptRelationTypes" table="map_m22_m23_tcr_type_2_object_prop"  inverse="true">
+		    <key column="object_prop_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TypeRelationTcImpl" column="tcr_type_id"/> 
+		  
+		</set>	
+		
+		
+		<set name="Annotations"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="object_prop_id"/>
+		    <one-to-many class="ObjectPropertyAnnotationImpl"/> 
+		 
+		</set>	
+		
+		
+		
+		<set name="ConstraintMinMax"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="object_prop_id"/>
+		    <one-to-many class="MinMaxImpl"/> 
+		 
+		</set>
+		
+		<set name="ConstraintAllValueFrom"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="object_prop_id"/>
+		    <one-to-many class="AllValueFromImpl"/> 
+		 
+		</set>
+		
+		<set name="ConstraintSomeValueFrom"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="object_prop_id"/>
+		    <one-to-many class="SomeValueFromImpl"/> 
+		 
+		</set>
+	</class>
+</hibernate-mapping>

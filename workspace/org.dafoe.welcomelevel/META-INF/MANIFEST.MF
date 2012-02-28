@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name.0
+Bundle-SymbolicName: org.dafoe.welcomelevel;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.welcomelevel.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.dafoe.contextlevel;bundle-version="1.0.0",
+ org.dafoe.ressources;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Localization: plugin
+Bundle-Vendor: CRITT Informatique

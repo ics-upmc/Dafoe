@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.databasemodeling.model.impl">
+	<class name="TableImpl"	table="m24_table">
+
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+				
+		
+		<property name="Name"	type="string">
+		<column name="name" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<set name="Columns"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="table_id"/>
+		    <one-to-many class="ColumnImpl"/> 
+		 
+		</set>
+		
+		<set name="Constraints"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="table_id"/>
+		    <one-to-many class="ConstraintImpl"/> 
+		 
+		</set>
+		
+		<many-to-one name="Schema" class="SchemaImpl" column="schema_id"/>
+					
+				
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminological.model.impl">
+	<class name="CorpusOriginalImpl" table="m11_corpus_original">
+		
+		<id name="Id" type="integer">
+		 <column name="corpus_origin_id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<property name="Name"	type="string">
+		<column name="name" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<property name="Language"	type="string">
+		<column name="language" sql-type="char(50)" not-null="false"/>
+		</property>
+		
+		<property name="Path"	type="string">
+		<column name="path" sql-type="char(100)" not-null="false"/>
+		</property>
+		 
+		
+		<set name="Corpus"  inverse="true" order-by="name asc" cascade="all-delete-orphan">
+		    <key column="corpus_origin_id"/>
+		    <one-to-many class="CorpusImpl"/> 
+		 
+		</set>
+		 
+	</class>
+</hibernate-mapping>

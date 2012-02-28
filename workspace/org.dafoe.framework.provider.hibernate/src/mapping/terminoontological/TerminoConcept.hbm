@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminoontological.model.impl">
+	<class name="TerminoConceptImpl" table="m22_terminoconcept" discriminator-value="FALSE">
+		
+		
+		
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<discriminator column="is_datatype" type="boolean"/>
+		
+		<!-- adhoc approach to know wether a tc is a datatype or not:-->
+		<property name="Simple"	type="boolean">
+		<column name="is_simple" sql-type="boolean" />
+		</property>
+				
+		
+		<set name="Annotations"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="tc_id"/>
+		    <one-to-many class="TerminoConceptAnnotationImpl"/> 
+		 
+		</set>
+		
+		<property name="Label"	type="string">
+		<column name="label" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<property name="Definition"	type="string">
+		<column name="nl_definition" sql-type="char(50)" />
+		</property>
+		
+		<property name="ParentDifference"	type="string">
+		<column name="parent_diff" sql-type="char(50)" />
+		</property>
+		
+		<property name="ParentSimilarity"	type="string">
+		<column name="parent_similar" sql-type="char(50)" />
+		</property>
+		
+		<property name="SiblingDifference"	type="string">
+		<column name="sibling_diff" sql-type="char(50)" />
+		</property>
+		
+		<property name="SiblingSimilarity"	type="string">
+		<column name="sibling_similar" sql-type="char(50)" />
+		</property>
+		
+		
+		<property name="Status"	type="integer">
+		<column name="status" sql-type="int(4)" not-null="false"/>
+		</property>
+				
+				
+		<!-- association inverse term 1:N terminoConceptOccur-->
+		<set name="TerminoConceptOccurrences"  inverse="true" cascade="all-delete-orphan">
+		    <key column="terminoconcept_id"/>
+		    <one-to-many class="TerminoConceptOccurrenceImpl"/> 
+		 
+		</set>		
+		
+		<!-- association vedette Term 1:N TC
+		many-to-one name="StarTerm" class="org.dafoe.framework.core.terminological.model.impl.TermImpl" column="term_id"-->
+	
+	   
+	   <set name="TerminoProperties" table="m22_terminoconcept_2_terminoproperty" cascade="all-delete-orphan">
+		    <key column="tc_id"/>
+		    <many-to-many class="TerminoPropertyImpl" column="terminoproperty_id"/> 
+		  
+		</set>
+	
+		<set name="RelationsMember" table="m22_tc_relation_member" inverse="true" cascade="all-delete-orphan">
+		    <key column="tc_id"/>
+		    <one-to-many class="TerminoConceptRelationMemberImpl"/> 
+		  
+		</set>
+		
+		
+		<set name="Children" table="m22_tc_2parent2_tc" >
+		    <key column="tc_parent_id"/>
+		    <many-to-many class="TerminoConceptImpl" column="tc_child_id"/> 
+		  
+		</set>
+		
+		 <set name="Parents" table="m22_tc_2parent2_tc"  inverse="true">
+		    <key column="tc_child_id"/>
+		    <many-to-many class="TerminoConceptImpl" column="tc_parent_id"/> 
+		  
+		</set>
+		
+				
+		<many-to-one name="TerminoOntology" class="TerminoOntologyImpl" column="termino_ontology_id"/>
+	
+	
+	<!-- mapping Term M:N TC-->
+	
+	
+		<set name="MappedTerms" table="map_m21_m22_term_2_terminoconcept"  inverse="false">
+		    <key column="tc_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.terminological.model.impl.TermImpl" column="term_id"/> 
+		  
+		</set>
+		
+		
+		
+		<!-- mapping TcM:N Class-->
+              <set name="MappedClasses" table="map_m22_m23_tc_2_class"  inverse="false">
+           <key column="tc_id"/>
+          <many-to-many class="org.dafoe.framework.provider.hibernate.ontological.model.impl.ClassImpl" column="class_id"/>
+                </set>
+                     <!-- mapping TcM:N DatatypeProp-->
+              <set name="MappedDatatypeProperties" table="map_m22_m23_tc_2_datatype_prop"  inverse="false">
+           <key column="tc_id"/>
+          <many-to-many class="org.dafoe.framework.provider.hibernate.ontological.model.impl.DatatypePropertyImpl" column="datatype_prop_id"/>
+                </set>
+                            <!-- mapping TcM:N ObjectProp-->
+              <set name="MappedObjectProperties" table="map_m22_m23_tc_2_object_prop"  inverse="false">
+           <key column="tc_id"/>
+          <many-to-many class="org.dafoe.framework.provider.hibernate.ontological.model.impl.ObjectPropertyImpl" column="object_prop_id"/>
+                </set> 
+		
+			
+		
+		
+	<!-- adhoc approach to fastly implement datatype in tc_layer-->
+	  <subclass name="TcDataTypeImpl"  discriminator-value="TRUE">
+		
+	    </subclass>
+	
+	
+	</class>
+</hibernate-mapping>

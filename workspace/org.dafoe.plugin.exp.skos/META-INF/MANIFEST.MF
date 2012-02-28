@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Export Skos
+Bundle-SymbolicName: org.dafoe.plugin.exp.skos;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.dafoe.plugin.exp.skos.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.dafoe.framework;bundle-version="1.0.0",
+ org.dafoe.api.skos;bundle-version="1.0.0",
+ org.dafoe.framework.provider.hibernate;bundle-version="1.0.0",
+ org.dafoe.lib.jena;bundle-version="1.0.0",
+ org.dafoe.framework.builder;bundle-version="1.0.0",
+ org.dafoe.framework.datasourcemanager;bundle-version="1.0.0",
+ org.dafoe.application.extensionpoint,
+ org.eclipse.ui,
+ org.dafoe.framework.tools;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: CRITT Informatique

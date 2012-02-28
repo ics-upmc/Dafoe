@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.workspace.model.impl">
+	<class name="ProjectImpl"	table="m0_project">
+	
+	
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<property name="Name"	type="string">
+		<column name="name" sql-type="char(100)" not-null="true"/>
+		</property>
+		
+		<property name="DateCreation"	type="timestamp" column="date_creation"/>
+		
+		
+		<property name="DateLastUpdate"	type="timestamp" column="date_last_update"/>
+		
+		
+	    <set name="Corpus"  inverse="true" order-by="name asc" cascade="all-delete-orphan">
+		    <key column="project_id"/>
+		    <one-to-many class="org.dafoe.framework.provider.hibernate.terminological.model.impl.CorpusImpl"/> 
+		 
+		</set>
+	
+	    <set name="Terminologies"  inverse="true" order-by="name asc" cascade="all-delete-orphan">
+		    <key column="project_id"/>
+		    <one-to-many class="org.dafoe.framework.provider.hibernate.terminological.model.impl.TerminologyImpl"/> 
+		 
+		</set>
+	
+	    <set name="TerminoOntologies"  inverse="true" order-by="name asc" cascade="all-delete-orphan">
+		    <key column="project_id"/>
+		    <one-to-many class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TerminoOntologyImpl"/> 
+		 
+		</set>
+	
+	    <set name="Ontologies"  inverse="true" order-by="name asc" cascade="all-delete-orphan">
+		    <key column="project_id"/>
+		    <one-to-many class="org.dafoe.framework.provider.hibernate.ontological.model.impl.OntologyImpl"/> 
+		 
+		</set>
+					
+	</class>
+</hibernate-mapping>

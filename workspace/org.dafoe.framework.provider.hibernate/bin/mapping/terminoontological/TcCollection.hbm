@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminoontological.model.impl">
+	<class name="TcCollectionImpl"	table="m22_tc_collection" discriminator-value="FALSE">
+	
+	
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<discriminator column="is_ordered" type="boolean" />
+		
+		
+		
+		<property name="Label"	type="string">
+		<column name="label" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+
+		
+		<set name="Elements" table="m22_tc_2_tc_collection"  inverse="false">
+		    <key column="tc_collection_id"/>
+		    <many-to-many class="TerminoConceptImpl" column="tc_id"/> 
+		  
+		</set>
+						
+		<many-to-one name="TerminoOntology" class="TerminoOntologyImpl" column="termino_ontology_id"/>
+		
+		
+		<subclass name="TcHashSetImpl"  discriminator-value="FALSE">
+		
+	    </subclass>
+	    
+	    <subclass name="TcArrayListImpl"  discriminator-value="TRUE">
+		
+	    </subclass>
+	
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Widgets Plug-in
+Bundle-SymbolicName: org.dafoe.ui.widgets;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: CRITT Informatique
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.ui,
+ org.dafoe.contextlevel;bundle-version="1.0.0"
+Export-Package: org.dafoe.ui.widgets
+Import-Package: org.eclipse.swt,
+ org.eclipse.swt.events,
+ org.eclipse.swt.graphics

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminological.model.impl">
+	<class name="TermSaillanceImpl" table="m21_term_saillance">
+		
+		
+		
+		
+		<id name="Id" type="integer">
+		 <column name="term_id" sql-type="int(4)"/>
+		 <generator class="foreign">
+		    <param name="property">Term</param>
+		  </generator> 
+		 
+		</id>
+				
+		
+		<property name="Frequency"	type="integer">
+		<column name="frequency" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+		<property name="HeadProductivity"	type="integer">
+		<column name="prod_t" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+		<property name="ModifierProductivity"	type="integer">
+		<column name="prod_e" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+		<property name="TfIdf"	type="integer">
+		<column name="tfidf" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+		<property name="NbVar"	type="integer">
+		<column name="nb_var" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+		<property name="TypographicalWeight"	type="integer">
+		<column name="typo_weight" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+		<property name="PositionWeight"	type="integer">
+		<column name="position_weight" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+		<property name="HeadNeighborSize"	type="integer">
+		<column name="nb_voisin_t" sql-type="int(4)" not-null="false"/>
+		</property>
+		
+		<property name="ModifierNeighborSize"	type="integer">
+		<column name="nb_voisin_e" sql-type="int(4)" not-null="false"/>
+		</property>
+		
+		<one-to-one name="Term" class="TermImpl" constrained="true"/>		
+					
+		
+	</class>
+</hibernate-mapping>

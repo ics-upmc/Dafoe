@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Transformer
+Bundle-SymbolicName: org.dafoe.mapping.transformer
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.dafoe.mapping.transformer.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.dafoe.framework;bundle-version="1.0.0",
+ org.dafoe.framework.provider.hibernate;bundle-version="1.0.0",
+ org.dafoe.controler;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.dafoe.mapping.transformer
+Bundle-Vendor: CRITT Informatique

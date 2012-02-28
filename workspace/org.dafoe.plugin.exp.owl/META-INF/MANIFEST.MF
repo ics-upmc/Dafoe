@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Export Owl
+Bundle-SymbolicName: org.dafoe.plugin.exp.owl;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.dafoe.plugin.exp.owl.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.dafoe.framework;bundle-version="1.0.0",
+ org.dafoe.framework.provider.hibernate;bundle-version="1.0.0",
+ org.dafoe.application.extensionpoint;bundle-version="1.0.0",
+ org.dafoe.ontologiclevel.common;bundle-version="1.0.0",
+ org.dafoe.lib.owlapi3;bundle-version="3.1.0",
+ org.eclipse.ui
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: .
+Export-Package: org.dafoe.plugin.exp.owl,
+ org.dafoe.plugin.exp.owl.main,
+ org.dafoe.plugin.exp.owl.model
+Bundle-Vendor: CRITT Informatique

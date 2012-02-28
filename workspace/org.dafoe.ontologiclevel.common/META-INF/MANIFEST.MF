@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Common Plug-in
+Bundle-SymbolicName: org.dafoe.ontologiclevel.common;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.ontologiclevel.common.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.dafoe.framework;bundle-version="1.0.0",
+ org.dafoe.framework.provider.hibernate;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.dafoe.ontologiclevel.common
+Bundle-ClassPath: bin/mapping/,
+ .
+Bundle-Vendor: CRITT Informatique

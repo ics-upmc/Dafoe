@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/hibernate3/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/asm-1.5.3.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/asm-attrs-1.5.3.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/cglib-2.1_3.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/ehcache-1.2.3.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/hibernate-3.2.5.ga.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/hibernate-annotations-3.2.1.ga.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/hibernate-entitymanager-3.2.1.ga.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/hibernate3.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/javassist-3.3.ga.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/javassist-3.9.0.GA.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/jboss-archive-browsing-5.0.0alpha-200607201-119.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/jta-1.0.1B.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/persistence-api-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/slf4j-log4j12-1.5.8.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3/slf4j-simple-1.5.8.jar"/>
+	<classpathentry kind="lib" path="lib/postgres3/postgresql-8.3-603.jdbc3.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

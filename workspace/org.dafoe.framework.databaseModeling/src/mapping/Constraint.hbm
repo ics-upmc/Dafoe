@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.databasemodeling.model.impl">
+	<class name="ConstraintImpl" table="m24_constraint" discriminator-value="A" >
+		
+			
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<discriminator column="constraint_type" type="string"/>
+		
+		<property name="Name"	type="string">
+		<column name="name" sql-type="char(300)" not-null="false"/>
+		</property>
+				
+		<property name="Expression"	type="string">
+			<column name="expression" sql-type="char(50)" />
+		</property>
+			
+		<many-to-one name="RelatedTable" class="TableImpl" column="table_id" cascade="none"/>
+				
+		<many-to-one name="RelatedColumn" class="ColumnImpl" column="column_id" cascade="none"/>
+			
+		
+		<subclass name="ConstraintCheckSuperiorImpl"   discriminator-value="SUP">
+		
+	    </subclass>	
+	    
+	    <subclass name="ConstraintCheckInferiorImpl"  discriminator-value="INF">
+		
+	    </subclass>
+	    
+	    <subclass name="ConstraintCheckInImpl"  discriminator-value="IN">
+		
+	    </subclass>
+	    
+	    <subclass name="ConstraintPrimaryKeyImpl"  discriminator-value="PK">
+		
+	    </subclass>
+	    
+	     <subclass name="ConstraintUniqueImpl"  discriminator-value="UNIQ">
+		
+	    </subclass>
+	    
+	    <subclass name="ConstraintForeignKeyImpl"  discriminator-value="FK">
+		
+		<many-to-one name="TargetTable" class="TableImpl" column="fk_table_id"/>
+	    </subclass>
+	      
+	    
+		
+	</class>
+</hibernate-mapping>

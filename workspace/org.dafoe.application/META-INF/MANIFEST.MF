@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name.0
+Bundle-SymbolicName: org.dafoe.application; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.application.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.dafoe.ressources;bundle-version="1.0.0",
+ org.dafoe.controler;bundle-version="1.0.0",
+ org.dafoe.contextlevel;bundle-version="1.0.0",
+ org.dafoe.corpuslevel.ui;bundle-version="1.0.0",
+ org.dafoe.terminoontologiclevel;bundle-version="1.0.0",
+ org.dafoe.terminoontologiclevel.ui;bundle-version="1.0.0",
+ org.dafoe.ontologiclevel;bundle-version="1.0.0",
+ org.dafoe.application.extensionpoint;bundle-version="1.0.0",
+ org.dafoe.application.datasourceaccess;bundle-version="1.0.0",
+ org.dafoe.terminologiclevel;bundle-version="1.0.0",
+ org.dafoe.projectmanagement;bundle-version="1.0.0",
+ org.dafoe.application.importexportmanager;bundle-version="1.0.0",
+ org.dafoe.framework.tools;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Localization: plugin
+Bundle-ClassPath: .
+Bundle-Vendor: CRITT Informatique

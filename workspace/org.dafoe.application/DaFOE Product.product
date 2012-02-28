@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="DaFOE 4 Apps" id="org.dafoe.application.dafoeProductId" application="org.dafoe.application.application" version="1.0" useFeatures="false" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/org.dafoe.ressources/icones/dragon.gif"/>
+      <text>
+         Dafoe 4 Apps 
+Helping tools for ontology building from texts
+V0.97 (December - 2011 - Aix beta version)
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-nl en -plugincustomization ./classic.ini</programArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/org.dafoe.application/icons/icone_16.gif"/>
+
+   <splash
+      location="org.dafoe.application"
+      startupProgressRect="5,275,445,15"
+      startupMessageRect="7,252,445,20"
+      startupForegroundColor="000000" />
+   <launcher name="Dafoe4App">
+      <solaris/>
+      <win useIco="true">
+         <ico path="/org.dafoe.application/icons/dafoe.ico"/>
+         <bmp/>
+      </win>
+   </launcher>
+
+
+   <vm>
+   </vm>
+
+   <license>
+        <url>http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html</url>
+        <text>
+   (c) Copyright 2007, 2010 CRITT Informatique and INSERM, LISI/ENSMA, MONDECA, LIPN, IRIT, SUPELEC, Télécom ParisTech, CNRS/UTC.
+ All rights reserved.
+ This program has been developed by the CRITT Informatique for the ANR DAFOE4App Project.
+ This program and the accompanying materials are made available under the terms
+ of the CeCILL-C Public License v1 which accompanies this distribution,
+ and is available at http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html
+
+ Contributors:
+     INSERM, LISI/ENSMA, MONDECA, LIPN, IRIT, SUPELEC, Télécom ParisTech, CNRS/UTC and CRITT Informatique - specifications
+     CRITT Informatique - initial API and implementation
+         </text>
+   </license>
+
+   <plugins>
+      <plugin id="com.ibm.icu"/>
+      <plugin id="javax.servlet"/>
+      <plugin id="org.dafoe.api.skos"/>
+      <plugin id="org.dafoe.application"/>
+      <plugin id="org.dafoe.application.datasourceaccess"/>
+      <plugin id="org.dafoe.application.extensionpoint"/>
+      <plugin id="org.dafoe.application.importexportmanager"/>
+      <plugin id="org.dafoe.application.importexportmanager.nl" fragment="true"/>
+      <plugin id="org.dafoe.application.nl" fragment="true"/>
+      <plugin id="org.dafoe.contextlevel"/>
+      <plugin id="org.dafoe.contextlevel.nl" fragment="true"/>
+      <plugin id="org.dafoe.controler"/>
+      <plugin id="org.dafoe.corpuslevel"/>
+      <plugin id="org.dafoe.corpuslevel.common"/>
+      <plugin id="org.dafoe.corpuslevel.nl" fragment="true"/>
+      <plugin id="org.dafoe.corpuslevel.ui"/>
+      <plugin id="org.dafoe.corpuslevel.ui.nl" fragment="true"/>
+      <plugin id="org.dafoe.framework"/>
+      <plugin id="org.dafoe.framework.builder"/>
+      <plugin id="org.dafoe.framework.datasourcemanager"/>
+      <plugin id="org.dafoe.framework.provider.hibernate"/>
+      <plugin id="org.dafoe.framework.tools"/>
+      <plugin id="org.dafoe.lib.jena"/>
+      <plugin id="org.dafoe.lib.owlapi3"/>
+      <plugin id="org.dafoe.lib.postgresql"/>
+      <plugin id="org.dafoe.librepository"/>
+      <plugin id="org.dafoe.mapping.transformer"/>
+      <plugin id="org.dafoe.ontologiclevel"/>
+      <plugin id="org.dafoe.ontologiclevel.common"/>
+      <plugin id="org.dafoe.ontologiclevel.nl" fragment="true"/>
+      <plugin id="org.dafoe.plugin.exp.owl"/>
+      <plugin id="org.dafoe.plugin.exp.owl.nl" fragment="true"/>
+      <plugin id="org.dafoe.plugin.imp.owl"/>
+      <plugin id="org.dafoe.plugin.imp.skos"/>
+      <plugin id="org.dafoe.plugin.imp.syntex"/>
+      <plugin id="org.dafoe.plugin.imp.yatea"/>
+      <plugin id="org.dafoe.plugin.load.corpus.syntex"/>
+      <plugin id="org.dafoe.plugin.load.corpus.yatea"/>
+      <plugin id="org.dafoe.projectmanagement"/>
+      <plugin id="org.dafoe.projectmanagement.nl" fragment="true"/>
+      <plugin id="org.dafoe.ressources"/>
+      <plugin id="org.dafoe.terminologiclevel"/>
+      <plugin id="org.dafoe.terminologiclevel.nl" fragment="true"/>
+      <plugin id="org.dafoe.terminology.common"/>
+      <plugin id="org.dafoe.terminoontologiclevel"/>
+      <plugin id="org.dafoe.terminoontologiclevel.common"/>
+      <plugin id="org.dafoe.terminoontologiclevel.nl" fragment="true"/>
+      <plugin id="org.dafoe.terminoontologiclevel.ui"/>
+      <plugin id="org.dafoe.terminoontologiclevel.ui.nl" fragment="true"/>
+      <plugin id="org.dafoe.ui.widgets"/>
+      <plugin id="org.dafoe.welcomelevel"/>
+      <plugin id="org.dafoe.welcomelevel.nl" fragment="true"/>
+      <plugin id="org.eclipse.ant.core"/>
+      <plugin id="org.eclipse.core.commands"/>
+      <plugin id="org.eclipse.core.contenttype"/>
+      <plugin id="org.eclipse.core.databinding"/>
+      <plugin id="org.eclipse.core.databinding.observable"/>
+      <plugin id="org.eclipse.core.databinding.property"/>
+      <plugin id="org.eclipse.core.expressions"/>
+      <plugin id="org.eclipse.core.filesystem"/>
+      <plugin id="org.eclipse.core.filesystem.aix.ppc" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.hpux.PA_RISC" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.hpux.ia64_32" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.linux.ppc" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.linux.x86" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.linux.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.macosx" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.qnx.x86" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.solaris.sparc" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.win32.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.net"/>
+      <plugin id="org.eclipse.core.net.linux.x86" fragment="true"/>
+      <plugin id="org.eclipse.core.net.linux.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.core.net.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.core.net.win32.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.core.resources"/>
+      <plugin id="org.eclipse.core.resources.compatibility" fragment="true"/>
+      <plugin id="org.eclipse.core.resources.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.auth"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
+      <plugin id="org.eclipse.core.variables"/>
+      <plugin id="org.eclipse.ecf"/>
+      <plugin id="org.eclipse.ecf.filetransfer"/>
+      <plugin id="org.eclipse.ecf.identity"/>
+      <plugin id="org.eclipse.ecf.provider.filetransfer"/>
+      <plugin id="org.eclipse.ecf.provider.filetransfer.ssl" fragment="true"/>
+      <plugin id="org.eclipse.ecf.ssl" fragment="true"/>
+      <plugin id="org.eclipse.equinox.app"/>
+      <plugin id="org.eclipse.equinox.common"/>
+      <plugin id="org.eclipse.equinox.concurrent"/>
+      <plugin id="org.eclipse.equinox.p2.artifact.repository"/>
+      <plugin id="org.eclipse.equinox.p2.core"/>
+      <plugin id="org.eclipse.equinox.p2.engine"/>
+      <plugin id="org.eclipse.equinox.p2.jarprocessor"/>
+      <plugin id="org.eclipse.equinox.p2.metadata"/>
+      <plugin id="org.eclipse.equinox.p2.metadata.repository"/>
+      <plugin id="org.eclipse.equinox.p2.repository"/>
+      <plugin id="org.eclipse.equinox.preferences"/>
+      <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.equinox.security"/>
+      <plugin id="org.eclipse.equinox.security.macosx" fragment="true"/>
+      <plugin id="org.eclipse.equinox.security.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.equinox.security.win32.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.help"/>
+      <plugin id="org.eclipse.jface"/>
+      <plugin id="org.eclipse.jface.databinding"/>
+      <plugin id="org.eclipse.jface.text"/>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.osgi.services"/>
+      <plugin id="org.eclipse.swt"/>
+      <plugin id="org.eclipse.swt.carbon.macosx" fragment="true"/>
+      <plugin id="org.eclipse.swt.cocoa.macosx" fragment="true"/>
+      <plugin id="org.eclipse.swt.cocoa.macosx.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.aix.ppc" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.aix.ppc64" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.hpux.ia64_32" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.linux.ppc" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.linux.ppc64" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.linux.s390" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.linux.s390x" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.linux.x86" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.linux.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.solaris.sparc" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.solaris.x86" fragment="true"/>
+      <plugin id="org.eclipse.swt.motif.aix.ppc" fragment="true"/>
+      <plugin id="org.eclipse.swt.motif.hpux.PA_RISC" fragment="true"/>
+      <plugin id="org.eclipse.swt.motif.hpux.ia64_32" fragment="true"/>
+      <plugin id="org.eclipse.swt.motif.linux.x86" fragment="true"/>
+      <plugin id="org.eclipse.swt.motif.solaris.sparc" fragment="true"/>
+      <plugin id="org.eclipse.swt.photon.qnx.x86" fragment="true"/>
+      <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.swt.win32.win32.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.swt.wpf.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.text"/>
+      <plugin id="org.eclipse.ui"/>
+      <plugin id="org.eclipse.ui.carbon" fragment="true"/>
+      <plugin id="org.eclipse.ui.cocoa" fragment="true"/>
+      <plugin id="org.eclipse.ui.forms"/>
+      <plugin id="org.eclipse.ui.ide"/>
+      <plugin id="org.eclipse.ui.views"/>
+      <plugin id="org.eclipse.ui.win32" fragment="true"/>
+      <plugin id="org.eclipse.ui.workbench"/>
+      <plugin id="org.eclipse.update.configurator"/>
+      <plugin id="org.eclipse.update.core"/>
+      <plugin id="org.eclipse.update.core.linux" fragment="true"/>
+      <plugin id="org.eclipse.update.core.win32" fragment="true"/>
+      <plugin id="org.eclipse.update.scheduler"/>
+      <plugin id="org.eclipse.update.ui"/>
+   </plugins>
+
+   <features>
+      <feature id="org.dafoe.application.feature" version="1.0.0.qualifier"/>
+   </features>
+
+
+</product>

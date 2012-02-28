@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminological.model.impl">
+	<class name="TermSyntacticRelationImpl" table="m21_term_relation_syntactic">
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+				
+		<!-- association modifier -->
+		<many-to-one name="ModifierTerm" class="TermImpl" column="modifier_term_id"/>
+		
+					
+		<!-- association head -->
+		<many-to-one name="HeadTerm" class="TermImpl" column="head_term_id"/>	
+		
+		<property name="Status"	type="integer">
+		<column name="status" sql-type="int(4)" not-null="false"/>
+		</property>
+						
+		<many-to-one name="Terminology" class="TerminologyImpl" column="terminology_id"/>		
+				
+	</class>
+</hibernate-mapping>

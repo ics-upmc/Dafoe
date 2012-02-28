@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminological.model.impl">
+	<class name="TermAnnotationImpl" table="m21_annotation_value_2_term">
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<property name="Value"	type="string">
+		<column name="annotation_value" sql-type="char(300)" not-null="true"/>
+		</property>
+		
+				
+		<!-- association Termino_annotation -->
+		<many-to-one name="TerminoAnnotationType" class="TerminoAnnotationTypeImpl" column="annotation_type_id" />
+		
+		<many-to-one name="ItsTerm" class="TermImpl" column="term_id"/>
+		
+		
+		
+		
+		
+	</class>
+</hibernate-mapping>

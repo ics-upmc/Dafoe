@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.core.metadata.model.impl">
+	<class name="EntityImpl"	table="m3_entity">
+
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+				
+		
+		<property name="Name"	type="string">
+		<column name="name" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<property name="Abstract"	type="boolean">
+		<column name="is_abstract" sql-type="boolean" not-null="true"/>
+		</property>	
+			
+		<property name="Dynamic" type="boolean">
+		<column name="is_dynamic" sql-type="boolean" not-null="true"/>
+		</property>	
+			
+	    <property name="RelatedTable"	type="string">
+		<column name="related_table_name" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<many-to-one name="Model" class="ModelImpl" column="model_id"/>
+					
+		<set name="SuperEntities" table="m3_entity_2parent2_entity"  inverse="true">
+		    <key column="sub_entity_id"/>
+		    <many-to-many class="EntityImpl" column="super_entity_id"/> 
+		  
+		</set>		
+		
+		<set name="SubEntities" table="m3_entity_2parent2_entity" >
+		    <key column="super_entity_id"/>
+		    <many-to-many class="EntityImpl" column="sub_entity_id"/> 
+		  
+		</set>		
+		
+	</class>
+</hibernate-mapping>

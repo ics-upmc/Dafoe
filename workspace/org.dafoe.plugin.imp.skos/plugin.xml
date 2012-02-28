@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.dafoe.application.extensionpoint.ImportTerminoOnto">
+      <ImportTerminoOnto
+            class="org.dafoe.plugin.imp.skos.main.SkosLoaderResource"
+            id="org.dafoe.plugin.imp.skos.ImportTerminoOntoID"
+            name="SKOS ---&gt; DAFOE">
+      </ImportTerminoOnto>
+   </extension>
+
+</plugin>

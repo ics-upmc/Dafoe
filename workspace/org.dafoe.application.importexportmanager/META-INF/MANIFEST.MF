@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Importexportmanager
+Bundle-SymbolicName: org.dafoe.application.importexportmanager
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.application.importexportmanager.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.5.2",
+ org.dafoe.application.extensionpoint;bundle-version="1.0.0",
+ org.dafoe.framework.provider.hibernate;bundle-version="1.0.0",
+ org.dafoe.ressources;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.ui.dialogs
+Export-Package: org.dafoe.application.importexportmanager,
+ org.dafoe.application.importexportmanager.controler,
+ org.dafoe.application.importexportmanager.exp.model,
+ org.dafoe.application.importexportmanager.exp.wizard,
+ org.dafoe.application.importexportmanager.imp.model,
+ org.dafoe.application.importexportmanager.imp.wizard,
+ org.dafoe.application.importexportmanager.model
+Bundle-Vendor: CRITT Informatique

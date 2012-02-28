@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tools Plug-in
+Bundle-SymbolicName: org.dafoe.framework.tools
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.framework.tools.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.dafoe.framework.datasourcemanager;bundle-version="1.0.0",
+ org.dafoe.lib.postgresql;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.dafoe.framework.tools
+Bundle-ClassPath: .
+Bundle-Vendor: CRITT Informatique

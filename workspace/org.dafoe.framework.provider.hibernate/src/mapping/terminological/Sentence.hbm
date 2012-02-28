@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminological.model.impl">
+	<class name="SentenceImpl" table="m11_sentence">
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<property name="Content"	type="string">
+		<column name="content" sql-type="char(300)" not-null="true"/>
+		</property>
+		
+				
+		<!-- association doc -->
+		<many-to-one name="Document" class="DocumentImpl" column="doc_id" />
+		
+		<!-- association inverse phrase 1:N termoccur-->
+		
+		<property name="OrderNumber"	type="integer">
+		<column name="num_order" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+		<set name="TermOccurrences"  inverse="true" cascade="all-delete-orphan">
+		    <key column="sentence_id"/>
+		    <one-to-many class="TermOccurrenceImpl"/> 
+		 
+		</set>
+		
+		
+		<!-- association inverse originRelation-->
+		
+		<set name="OriginRelations"  inverse="true">
+		    <key column="sentence_id"/>
+		    <one-to-many class="OriginRelationImpl"/> 
+		 
+		</set>	
+		
+		
+		
+		
+		
+	</class>
+</hibernate-mapping>

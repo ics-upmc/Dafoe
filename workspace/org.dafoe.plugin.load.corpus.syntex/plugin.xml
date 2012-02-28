@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.dafoe.application.extensionpoint.ImportTermino">
+      <ImportTermino
+            class="org.dafoe.plugin.load.corpus.syntex.main.SyntexLoaderResource"
+            format="txt"
+            id="org.dafoe.plugin.load.corpus.syntex.ImportTermino1"
+            name="SYNTEX ---&gt; DAFOE (old version)">
+      </ImportTermino>
+   </extension>
+
+</plugin>

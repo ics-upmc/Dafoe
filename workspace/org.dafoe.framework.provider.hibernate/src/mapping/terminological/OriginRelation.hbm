@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminological.model.impl">
+	<class name="OriginRelationImpl" table="m21_origin_relation">
+		
+		
+		
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<!-- association sentence -->
+		<many-to-one name="Sentence" class="SentenceImpl" column="sentence_id" cascade="none"/>
+		
+			
+		<!-- association method -->
+		<many-to-one name="Method" class="MethodImpl" column="method_id" cascade="none"/>
+		
+		<!-- association method -->
+		<many-to-one name="TermRelation" class="TermRelationImpl" column="term_rel_id" cascade="none"/>		
+		
+	</class>
+</hibernate-mapping>

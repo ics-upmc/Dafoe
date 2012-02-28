@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.provider.hibernate.terminological.model.impl">
+	<class name="TermImpl"	table="m21_term">
+	
+	
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<property name="Label"	type="string">
+		<column name="label" sql-type="char(50)" not-null="true"/>
+		</property>
+		
+		<property name="Status"	type="integer">
+		<column name="status" sql-type="int(4)" />
+		</property>
+		
+		<property name="IsNamedEntity"	type="integer">
+		<column name="is_named_entity" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+				
+		<!-- association inverse term 1:N termoccur-->
+		<set name="TermOccurrences"  inverse="true" order-by="position asc" cascade="all-delete-orphan">
+		    <key column="term_id"/>
+		    <one-to-many class="TermOccurrenceImpl"/> 
+		 
+		</set>
+	
+	  
+		<!--  all-delete-orphan ne marche pas avec les association one-to-one -->
+		<one-to-one name="Saillance" class="TermSaillanceImpl" />
+	
+	
+	
+	<!--  association inverse  1:N -->
+		
+		<set name="RelationsWhereInTerm1"  inverse="true" cascade="all-delete-orphan">
+		    <key column="term1_id"/>
+		    <one-to-many class="TermRelationImpl"/> 
+		  
+		</set>
+		
+	<!--  association inverse  1:N -->	
+		<set name="RelationsWhereInTerm2"  inverse="true" cascade="all-delete-orphan">
+		    <key column="term2_id"/>
+		    <one-to-many class="TermRelationImpl"/> 
+		  
+		</set>
+		
+			   
+	   
+	   <set name="TermProperties" table="m21_term_2_termproperty" cascade="all-delete-orphan">
+		    <key column="term_id"/>
+		    <many-to-many class="TermPropertyImpl" column="termproperty_id"/> 
+		  
+		</set>
+		    
+		
+		
+		<set name="Variantes"  inverse="true" >
+		    <key column="star_term_id"/>
+		    <one-to-many class="TermImpl"/> 
+		 
+		</set>
+	
+	    <many-to-one name="StarTerm" class="TermImpl" column="star_term_id"/>
+	    
+	    
+	    <!--  association inverse  1:N -->
+		
+		<set name="ModifierInSyntacticRelation"  inverse="true" cascade="all-delete-orphan">
+		    <key column="modifier_term_id"/>
+		    <one-to-many class="TermSyntacticRelationImpl"/> 
+		  
+		</set>
+		
+	<!--  association inverse  1:N -->	
+		<set name="HeadInSyntacticRelation"  inverse="true" cascade="all-delete-orphan">
+		    <key column="head_term_id"/>
+		    <one-to-many class="TermSyntacticRelationImpl"/> 
+		</set>
+	    
+	<!--  mapping  term M:N tc -->	
+	 	<set name="MappedTerminoConcepts" table="map_m21_m22_term_2_terminoconcept"  inverse="false">
+		    <key column="term_id"/>
+		   <many-to-many class="org.dafoe.framework.provider.hibernate.terminoontological.model.impl.TerminoConceptImpl" column="tc_id"/> 
+		  
+		</set>
+		
+	
+	<set name="Annotations"  inverse="true"  cascade="all-delete-orphan">
+		    <key column="term_id"/>
+		    <one-to-many class="TermAnnotationImpl"/> 
+		 
+		</set>
+	
+	
+	<many-to-one name="Terminology" class="TerminologyImpl" column="terminology_id"/>
+	
+	</class>
+</hibernate-mapping>

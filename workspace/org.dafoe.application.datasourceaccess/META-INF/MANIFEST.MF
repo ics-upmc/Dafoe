@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Datasourceaccess Plug-in
+Bundle-SymbolicName: org.dafoe.application.datasourceaccess
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.application.datasourceaccess.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.dafoe.framework.datasourcemanager;bundle-version="1.0.0",
+ org.dafoe.framework;bundle-version="1.0.0",
+ org.dafoe.framework.tools;bundle-version="1.0.0",
+ org.dafoe.framework.provider.hibernate;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.dafoe.application.datasourceaccess
+Bundle-ClassPath: lib/postgresql-8.3-603.jdbc3.jar,
+ .,
+ lib/jdom/ant.jar,
+ lib/jdom/jaxen.jar,
+ lib/jdom/jdom.jar,
+ lib/jdom/saxpath.jar,
+ lib/jdom/xalan.jar,
+ lib/jdom/xerces.jar,
+ lib/jdom/xml-apis.jar
+Bundle-Vendor: CRITT Informatique

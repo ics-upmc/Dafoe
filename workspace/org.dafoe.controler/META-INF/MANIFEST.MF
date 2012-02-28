@@ -1,0 +1,21 @@
+sManifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Controler Plug-in
+Bundle-SymbolicName: org.dafoe.controler
+Bundle-Version: 1.0.0
+Bundle-Activator: org.dafoe.controler.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.dafoe.framework;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.dafoe.controler;uses:="org.eclipse.ui.plugin,org.osgi.framework",
+ org.dafoe.controler.factory;uses:="org.dafoe.controler.model",
+ org.dafoe.controler.model;uses:="org.dafoe.framework.core.ontological.model,org.dafoe.framework.core.terminological.model,org.dafoe.framework.core.terminoontological.model",
+ org.dafoe.controler.model.impl;
+  uses:="org.dafoe.framework.core.ontological.model,
+   org.dafoe.framework.core.terminological.model,
+   org.dafoe.controler.model,
+   org.dafoe.framework.core.terminoontological.model",
+ org.dafoe.controler.utility
+Bundle-Vendor: CRITT Informatique

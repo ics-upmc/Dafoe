@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-mapping package="org.dafoe.framework.core.metadata.model.impl">
+	<class name="AttributTypeImpl" table="m3_attribut_type" discriminator-value="null">
+		
+			
+		<id name="Id" type="integer">
+		 <column name="id" sql-type="int(4)"/>
+		 <generator class="increment"/>
+		</id>
+		
+		<discriminator column="is_simple_type" type="boolean"/>
+		
+		
+		<subclass name="SimpleTypeImpl" extends="AttributTypeImpl" table="m3_attribut_type" discriminator-value="true">
+		
+		
+			<property name="Name"	type="string">
+			<column name="st_name" sql-type="char(50)" not-null="true"/>
+			</property>
+		
+			<property name="JavaType"	type="string">
+			<column name="st_java_type" sql-type="char(50)" not-null="true"/>
+			</property>
+		
+			<property name="SqlType"	type="string">
+			<column name="st_sql_type" sql-type="char(50)" not-null="true"/>
+			</property>
+				
+	    </subclass>	
+	    
+	    
+	    <subclass name="EntityTypeImpl" extends="AttributTypeImpl" table="m3_attribut_type" discriminator-value="false">
+			
+			<many-to-one name="RelatedEntity" class="EntityImpl" column="et_target_entity_id"/>			
+				
+	    </subclass>	
+	    
+	    
+	    
+		
+	</class>
+</hibernate-mapping>
